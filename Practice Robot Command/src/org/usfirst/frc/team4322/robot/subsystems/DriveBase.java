@@ -5,6 +5,7 @@ import org.usfirst.frc.team4322.robot.commands.ArcadeDrive;
 
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveBase extends Subsystem {
 
@@ -25,7 +26,6 @@ public class DriveBase extends Subsystem {
 		
 		// Create instance of robotDrive
 		robotDrive = new RobotDrive(Jaguar_1, Jaguar_2);
-		
 	}
 
 	@Override
@@ -34,9 +34,22 @@ public class DriveBase extends Subsystem {
 		setDefaultCommand(new ArcadeDrive());
 	}
 	
+	// ArcadeDrive controller
 	public void drive(double moveValue, double rotateValue, double powerLimit)
 	{
 		robotDrive.arcadeDrive(moveValue * powerLimit, rotateValue * powerLimit);
+	}
+	
+	// Command run by Robot.java to add values to SmartDashboard and/or RobotLogger
+	public void log()
+	{
+		// Writes current command using the DriveBase subsystem to SmartDashboard
+		SmartDashboard.putData("Current DriveBase Mode: ", this.getCurrentCommand());
+		
+		// Writes current PilotController Joystick values to SmartDashboard
+		// Specifically Throttle and Steering Sticks
+		SmartDashboard.putNumber("Throttle Stick: ", PilotController.getInstance().getThrottleStick());
+		SmartDashboard.putNumber("Steering Stick: ", PilotController.getInstance().getSteeringStick());
 	}
 
 }

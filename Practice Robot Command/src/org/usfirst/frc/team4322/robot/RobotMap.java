@@ -38,4 +38,12 @@ public class RobotMap {
 	// Gyro analog port
 	public static int GYRO_PORT = 1;
 	public static int GYRO_TEMP_PORT = 2;
+	
+	// Command Timeout Values
+	public static double Turn90Timeout = 5;
+	
+	// Command Specific Values (such as PID values)
+	public static double Turn90pVal = 0.005;
+	public static double Turn90iVal = 0;
+	public static double Turn90dVal = 0;
 }

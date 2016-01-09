@@ -26,6 +26,8 @@ public class Robot extends IterativeRobot {
 	
 	// You must create instances of each subsystem before you can "require" and use them in your commands.
 	public static final DriveBase driveBase = new DriveBase();
+	public static final RangeFinder rangeFinder = new RangeFinder();
+	public static final Gyro gyro = new Gyro();
 	
 	public static OI oi;
 
@@ -38,6 +40,9 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
 		oi = new OI();
+		
+		// Runs the log command at the bottom of this class
+		log();
     }
 	
 	/**
@@ -47,12 +52,16 @@ public class Robot extends IterativeRobot {
      */
     public void disabledInit()
     {
-    	
+    	// Runs the log command at the bottom of this class
+    	log();
     }
 	
 	public void disabledPeriodic()
 	{
 		Scheduler.getInstance().run();
+		
+		// Runs the log command at the bottom of this class
+		log();
 	}
 
 	/**
@@ -66,7 +75,8 @@ public class Robot extends IterativeRobot {
 	 */
     public void autonomousInit()
     {
-    	
+    	// Runs the log command at the bottom of this class
+    	log();
     }
 
     /**
@@ -75,6 +85,9 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic()
     {
         Scheduler.getInstance().run();
+        
+        // Runs the log command at the bottom of this class
+     	log();
     }
 
     public void teleopInit() {
@@ -83,6 +96,9 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        
+        // Runs the log command at the bottom of this class
+     	log();
     }
 
     /**
@@ -90,6 +106,9 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        
+        // Runs the log command at the bottom of this class
+     	log();
     }
     
     /**
@@ -97,5 +116,16 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+        
+        // Runs the log command at the bottom of this class
+     	log();
+    }
+    
+    // This will run the log commands in each subsystem
+    private void log()
+    {
+    	driveBase.log();
+    	rangeFinder.log();
+    	gyro.log();
     }
 }
