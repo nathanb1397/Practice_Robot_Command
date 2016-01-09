@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4322.robot;
 
+import org.usfirst.frc.team4322.robot.commands.*;
+
 import edu.wpi.first.wpilibj.buttons.Button;
 
 /**
@@ -38,6 +40,12 @@ public class OI
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 	
-	
+	public OI()
+	{
+		PilotController.getInstance().DriveForwardToDistanceButton().whenPressed(new DriveForwardToDistance());
+		PilotController.getInstance().Turn90Button().whenPressed(new Rotate90());
+		// Interrupt needs to be written with its full location, otherwise Java thinks it's the 'interrupt' argument from WPILIB
+		PilotController.getInstance().InterruptButton().whenPressed(new org.usfirst.frc.team4322.robot.commands.Interrup());
+	}
 }
 
