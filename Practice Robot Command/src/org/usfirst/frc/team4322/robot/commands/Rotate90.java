@@ -48,7 +48,7 @@ public class Rotate90 extends Command {
 		}, new PIDOutput(){
 			@Override
 			public void pidWrite(double output) {
-				Robot.driveBase.drive(output, 0, RobotMap.POWER_LIMIT);
+				Robot.driveBase.drive(0, output, RobotMap.POWER_LIMIT);
 			}
 		});
 		pid.setSetpoint(setpoint);
