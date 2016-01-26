@@ -49,7 +49,7 @@ public class Gyro extends Subsystem {
 	{
 		// Writes current Gyro angle values to SmartDashboard
 		SmartDashboard.putNumber("Current Gyro Angle: ", this.getGyroAngle());
-		SmartDashboard.putNumber("Current Absolute Gyro Angle (360ฐ): ", this.getGyro360());
+		SmartDashboard.putNumber("Current Absolute Gyro Angle (360ยบ): ", this.getGyro360());
 	}
 
 }

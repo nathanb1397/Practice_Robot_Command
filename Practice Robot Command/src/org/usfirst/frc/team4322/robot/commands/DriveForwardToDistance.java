@@ -22,7 +22,7 @@ public class DriveForwardToDistance extends Command {
 	@Override
 	protected void execute()
 	{
-		if(Robot.rangeFinder.GetRangeInInches() < 36)
+		if(Robot.rangeFinder.GetRangeInInches() > 36)
 		{
 			Robot.driveBase.drive(0.5, 0, 0);
 		}

@@ -2,9 +2,8 @@ package org.usfirst.frc.team4322.robot.commands;
 
 import org.usfirst.frc.team4322.robot.PilotController;
 import org.usfirst.frc.team4322.robot.Robot;
-import org.usfirst.frc.team4322.robot.RobotMap;
-
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class ArcadeDrive extends Command {
 
@@ -26,8 +25,12 @@ public class ArcadeDrive extends Command {
 	protected void execute()
 	{
 		// This will run ArcadeDrive in DriveBase
+		
+		// Get Power Limit from SmartDashboard
+		double powerLimit = SmartDashboard.getNumber("Arcade Drive Power Limit: ");
+		
 		// This code provide the values for the arguments we require while setting up ArcadeDrive, including our Power Limit
-		Robot.driveBase.drive(PilotController.getInstance().getThrottleStick(), PilotController.getInstance().getSteeringStick(), RobotMap.POWER_LIMIT);
+		Robot.driveBase.drive(PilotController.getInstance().getThrottleStick(), PilotController.getInstance().getSteeringStick(), powerLimit);
 	}
 
 	@Override

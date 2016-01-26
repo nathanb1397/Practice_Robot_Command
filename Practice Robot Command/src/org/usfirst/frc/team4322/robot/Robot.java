@@ -43,6 +43,7 @@ public class Robot extends IterativeRobot {
 		
 		// Runs the log command at the bottom of this class
 		log();
+		logOnce();
     }
 	
 	/**
@@ -125,7 +126,12 @@ public class Robot extends IterativeRobot {
     private void log()
     {
     	driveBase.log();
-    	rangeFinder.log();
-    	gyro.log();
+    	//rangeFinder.log();
+    	//gyro.log();
+    }
+    
+    private void logOnce()
+    {
+    	driveBase.logOnce();
     }
 }
